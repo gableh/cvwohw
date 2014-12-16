@@ -15,7 +15,7 @@ if(isset($_POST['name'])){
     }
     if(!isset($error)){
 	add_category($connection,$name);
-	echo("wqerewdwq");
+	
     }
 
 }
