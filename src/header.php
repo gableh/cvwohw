@@ -3,7 +3,7 @@
     <head>
 	<title>BlogSite</title>
 	<meta name="viewport" content="width = device-width, initial-scale=1.0">
-	<base href="localhost/mysite/src/" />
+	<!-- <base href="localhost/mysite/src/" />-->
 	<link href ="static/bootstrap/dist/css/bootstrap.min.css" rel = "stylesheet">
 	<link href ="index.css" rel = "stylesheet">
     </head>
