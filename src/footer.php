@@ -1,4 +1,7 @@
-<div class ="navbar navbar-default navbar-fixed-bottom">
+<style>
+body{padding-bottom:40px;}
+</style>
+<div class ="navbar navbar-inverse navbar-fixed-bottom">
 	    <div class = "container">
 		<p class="navbar-text pull-left"> Site built by Gable</p>
 		<a href="#" class = "navbar-btn btn-danger btn pull-right">Subscribe!</a><!--Subscribe to the mailing list,will attempt to include a window that opens in the browser somesort of popup box --!>

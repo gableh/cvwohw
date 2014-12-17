@@ -1,6 +1,11 @@
 <?php
-
-function add_post($title,$contents,$category){
+ini_set('display_errors',1);
+function add_post($connection,$title,$content,$category){
+    $title =mysqli_real_escape_string($connection,$title);
+    $content =mysqli_real_escape_string($connection,$content);
+    $category = (int)$category;
+    mysqli_query($connection,"INSERT INTO blog_posts (catID,postContent,postDate,postTitle) VALUES($category,'{$content}',now(),'{$title}')");
+    
 }
 
 function edit_post($id,$title,$content,$category){
@@ -11,13 +16,39 @@ function add_category($connection,$name){
     mysqli_query($connection,"INSERT INTO blog_categories (name) VALUES('$name')");
 }
 
-function deleteStuff($field,$id){
+function deleteStuff($connection,$table,$id){
+    $table = mysqli_real_escape_string($connection,$table);
+    $id = (int)$id;
+    mysqli_query($connection,"DELETE FROM $table WHERE id = $id");
+    
 }
 
-function get_posts($id = null,$catID =null){
+function get_posts($connection,$id = null,$catID =null){
+    $posts = array();
+    $query ="SELECT blog_posts.postID,blog_posts.postTitle,blog_posts.postDate,blog_posts.postContent,blog_categories.id,blog_categories.name
+FROM blog_posts
+INNER JOIN blog_categories 
+ON blog_categories.id =blog_posts.catID";
+    if(isset($id)){
+	$id = (int)$id;
+	$query .=" WHERE blog_posts.postID = {$id}";
+    }
+    $query.=" ORDER BY blog_posts.postID DESC";
+    
+    $query = mysqli_query($connection,$query);
+    while($row =mysqli_fetch_assoc($query)){
+	$posts[] = $row;
+    }
+    return $posts;
 }
 
-function get_categories($id = null){
+function get_categories($connection,$id = null){
+    $categories = array();
+    $query = mysqli_query($connection,"SELECT name,id FROM blog_categories");
+    while($row = mysqli_fetch_assoc($query)){
+	$categories[] = $row;
+    }
+    return $categories;
 }
 
 function mysqli_result($res,$row=0,$col=0)
@@ -31,10 +62,18 @@ function mysqli_result($res,$row=0,$col=0)
     } 
 	    return false; 
 }
-function category_exists($connection,$name){
-    $name =mysqli_real_escape_string($connection,$name);
+function category_exists($connection,$field,$value){
+    $field =mysqli_real_escape_string($connection,$field);
+    $value = mysqli_real_escape_string($connection,$value);
     
-    $query = mysqli_query($connection,"SELECT COUNT(1)) FROM 'blog_categories' WHERE 'name' = '{$name}'");
-    return $query;
+    $query = mysqli_query($connection,"SELECT COUNT(1) FROM 'blog_categories' WHERE '{$field}' = '{$value}'");
+    if($query == false){
+	return false;
+    }
+    return true;
+}
+function now(){
+    $dt = new DateTime();
+    return $dt->format('Y-m-d H:i:s');
 }
 ?>

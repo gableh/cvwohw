@@ -11,7 +11,7 @@
 	<div class = "navbar navbar-inverse">
 	    <div class= "container">
 		<div class = "navbar-header">
-		    <a href = "#" class = "navbar-brand">BlogSite</a>
+		    <a href = "index.php" class = "navbar-brand">BlogSite</a>
 		    <button type ="button" class = "navbar-toggle" data-toggle ="collapse" data-target="#navHeaderCollapse">
 			<span class= "icon-bar"></span>
 			<span class= "icon-bar"></span>
@@ -20,7 +20,7 @@
 		</div>
 		    <div class ="collapse navbar-collapse" id = "navHeaderCollapse">
 			<ul class= "nav navbar-nav navbar-right">
-			    <li class = "active"><a href="#">Home</a></li>
+			    <li class = "active"><a href="index.php">Home</a></li>
 			    		
 			    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Signup</a></li>
 			    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>

@@ -7,7 +7,7 @@ if(isset($_POST['name'])){
     if(empty($name)){
 	$error ="Please submit a category name";
     }
-    else if(category_exists($connection,$name)!= false){
+    else if((category_exists($connection,'name',$name))){
 	$error = 'Category already exists!';
     }
     else if(strlen($name) >24){
@@ -23,6 +23,11 @@ if(isset($_POST['name'])){
 <?php include_once('header.php') ?>
 <body>
     <h1>Add Category</h1>
+    <?php
+    if(isset($error)){
+	echo "<p>{$error}</p>\n";
+    }
+    ?>
     <form action ="" method ="post">
 	<div>
 	    <label for= "name">Name</label>

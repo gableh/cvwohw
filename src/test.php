@@ -1,18 +1,23 @@
 
-<?php include('header.php') ?>
-<!--    <?php
-	    try{
-		$stmt =$db->query('SELECT postID,postTitle,postDesc,postDate FROM blog_posts ORDER BY postID DESC')
-		while($row =$stmt->fetch()){
-		    echo '<div>';
-			echo '<h1><a href ="viewpost.php?id='.$row['postID'].'">'.$row['postTitle'].'</a></h1>';
-			echo '<p>Posted on '.date('jS M Y H:i:s',strtotime($row['postDate'])).'</p>';
-			echo '<p>'.$row['postDesc'].'</p>';
-			echo '<p><a href="viewpost.php?id='.$row['postID'].'">Read More</a></p>';
-			echo '</div>';
-		}catch(PDOException $e){
-		    echo $e-> getMessage();
+<?php include_once('header.php') ?>
+<?php include_once('config/init.php');
+    $posts = get_posts($connection);
+
+?>
+<div class = "container">
+    <div class ="jumbotron">
+	<?php
+	    
+	    foreach($posts as $post){
+		if(category_exists($connection,'name',$post['name']))
+		{
+		    $post['name'] = 'Uncategorized';
 		}
-	?> -->
-hello hello
-<?php include('header.php') ?>
+		?>
+		<h2><a href="index.php?id=<?php echo $post['postID'];?>"><?php echo $post['postTitle'];?></a></h2>
+	<?php
+	    }
+	?> 
+    </div>
+</div>
+<?php include('footer.php') ?>
