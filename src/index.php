@@ -8,7 +8,8 @@
 	<?php
 	    
 	    foreach($posts as $post){
-		if(category_exists($connection,'name',$post['name']))
+		
+		if(!category_exists($connection,'name',$post['name']))
 		{
 		    $post['name'] = 'Uncategorized';
 		}

@@ -33,6 +33,10 @@ ON blog_categories.id =blog_posts.catID";
 	$id = (int)$id;
 	$query .=" WHERE blog_posts.postID = {$id}";
     }
+    if(isset($catID)){
+	$catID = (int)$catID;
+	$query .=" WHERE blog_posts.catID ={$catID}";
+    }
     $query.=" ORDER BY blog_posts.postID DESC";
     
     $query = mysqli_query($connection,$query);
@@ -66,11 +70,15 @@ function category_exists($connection,$field,$value){
     $field =mysqli_real_escape_string($connection,$field);
     $value = mysqli_real_escape_string($connection,$value);
     
-    $query = mysqli_query($connection,"SELECT COUNT(1) FROM 'blog_categories' WHERE '{$field}' = '{$value}'");
-    if($query == false){
+    $query = mysqli_query($connection,"SELECT COUNT({$field}) FROM blog_categories WHERE {$field} = '{$value}'");
+
+    $row = $query->fetch_row();
+    if($row[0] == 0){
 	return false;
     }
+    else{
     return true;
+    }
 }
 function now(){
     $dt = new DateTime();
