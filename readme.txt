@@ -25,4 +25,6 @@ To do list:
 Problems being faced:
     Getting all the css stuff to work together
     Using the css stuff
-    directory structure
+    directory structure	\
+    			-->i think its supposed to look like this?
+    database schema	/	
