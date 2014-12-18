@@ -1,40 +1,44 @@
 <?php include_once('header.php')?>
-
-<?php include_once('config/init.php');
-
-    if(isset($_POST['title'],$_POST['content'],$_POST['category'])){
-	$errors= array();
-	$title    = trim($_POST['title']);
-	$content  = trim($_POST['content']);
+<?php 
+include_once('config/init.php');
+if(isset($_POST['title'],$_POST['content'],$_POST['category']))
+{
+    $errors= array();
+    $title    = trim($_POST['title']);
+    $content  = trim($_POST['content']);
 	
-	if(empty($title)){
-	    $errors[] ="Need a title";
-	}
-	if(empty($content)){
-	    $errors[] ="Need content";
-	}
-	if(!category_exists($connection,'id',$_POST['category'] )){
-	    $errors[] ="Category does not exist!";
-	}
-	if(strlen($title)>255){
-	    $errors[] ="title cannot be longer than 255 characters";
-	}
-	if(empty($errors)){
-	    add_post($connection,$title,$content,$_POST['category']);
-	    $postID= mysqli_insert_id($connection);
-	    header("Location: index.php?id={$postID}");
-	    die();
-	}
-	
-	
+    if(empty($title))
+    {
+	$errors[] ="Need a title";
     }
+    if(empty($content))
+    {
+	$errors[] ="Need content";
+    }
+    if(!category_exists($connection,'id',$_POST['category'] ))
+    {
+	$errors[] ="Category does not exist!";
+    }
+    if(strlen($title)>255)
+    {
+	$errors[] ="title cannot be longer than 255 characters";
+    }
+    if(empty($errors))
+    {
+	add_post($connection,$title,$content,$_POST['category']);
+	$postID= mysqli_insert_id($connection);
+	header("Location: index.php?id={$postID}");
+	die();
+    }
+}
 ?>
 <div class ="container">
 <h1>Add a Post</h1>
 <?php
-    if(isset($errors) && !empty($errors)){
-	echo '<ul><li>',implode('</li><li>',$errors),'</li></ul>';
-    }
+if(isset($errors) && !empty($errors))
+{
+    echo '<ul><li>',implode('</li><li>',$errors),'</li></ul>';
+}
 ?>
 <form action= "" method = "post">
     <div>

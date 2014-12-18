@@ -1,10 +1,11 @@
 <?php include_once('header.php') ?>
 <?php include_once('config/init.php');
 session_start();
-if(isset($_SESSION['username'])){
-echo "Welcome,".$_SESSION['username']."!";
+if(isset($_SESSION['username']))
+{
+    echo "Welcome,".$_SESSION['username']."!";
 }
-    $posts = (isset($_GET['id'])?get_posts($connection,$_GET['id']):get_posts($connection));
+$posts = (isset($_GET['id'])?get_posts($connection,$_GET['id']):get_posts($connection));
 
 ?>
 <div class = "container">
@@ -16,7 +17,7 @@ echo "Welcome,".$_SESSION['username']."!";
 		if(!category_exists($connection,'name',$post['name']))
 		{
 		    $post['name'] = 'Uncategorized';
-		}
+    		}
 		?>
 		<h2><a href="index.php?id=<?php echo $post['postID'];?>"><?php echo $post['postTitle'];?></a></h2>
 	    <p>Posted on <?php echo date("d-m-Y h:i:s",strtotime($post["postDate"]));?> in <a href="category.php?id=<?php echo $post['id'] ?>"><?php echo $post['name']; ?></a></p>

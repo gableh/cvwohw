@@ -27,8 +27,6 @@
 	    header("Location: index.php?id={$post[0]['postID']}");
 	    die();
 	}
-	
-	
     }
 ?>
 <div class ="container">
