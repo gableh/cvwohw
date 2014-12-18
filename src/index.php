@@ -1,5 +1,9 @@
 <?php include_once('header.php') ?>
 <?php include_once('config/init.php');
+session_start();
+if(isset($_SESSION['username'])){
+echo "Welcome,".$_SESSION['username']."!";
+}
     $posts = (isset($_GET['id'])?get_posts($connection,$_GET['id']):get_posts($connection));
 
 ?>

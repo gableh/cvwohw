@@ -89,4 +89,21 @@ function now(){
     $dt = new DateTime();
     return $dt->format('Y-m-d H:i:s');
 }
+function login($connection,$username,$password){
+    $query = mysqli_query($connection,"SELECT * FROM blog_members WHERE username = '{$username}'");
+    $numrow = mysqli_num_rows($query);
+    if($numrow !=0){
+	while($row = mysqli_fetch_assoc($query)){
+	    $dbusername =  $row['username'];
+	    $dbpassword = $row['password'];
+	    if($dbusername == $username && $dbpassword == $password){
+		return true;
+	    }
+	}
+    return false;
+    }
+    else{
+	die("User doesnt exist!");
+    }
+}
 ?>

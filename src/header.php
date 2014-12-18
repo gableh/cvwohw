@@ -20,19 +20,19 @@
 		</div>
 		    <div class ="collapse navbar-collapse" id = "navHeaderCollapse">
 			<ul class= "nav navbar-nav navbar-right">
-			    <li class = "active"><a href="index.php">Home</a></li>
+			    <li class><a href="index.php">Home</a></li>
 			    		
 			    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Signup</a></li>
-			    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+			    <li><a href="loginform.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 			    <li class = "dropdown">
 				<a href="#" class = "dropdown-toggle" data-toggle = "dropdown">Find Us!<b class ="caret"></b></a>
 				<ul class = "dropdown-menu">
-				    <li><a href= "#">Twitter</a></li>
-				    <li><a href="#">Facebook</a></li>
+				    <li><a href= "http://www.twitter.com">Twitter</a></li>
+				    <li><a href="http://www.facebook.com">Facebook</a></li>
 				</ul>
 			    
 			    </li>
-			    <li><a href="#">Contact</a></li>
+			    <li><a href="http://www.gmail.com">Contact</a></li>
 			</ul>
 		    </div>
 		
