@@ -1,0 +1,10 @@
+$dbname=cvwohw
+blog_categories		blog_posts		blog_members
++id----------------------->+catID		+memberID 
++name			   +postContent		+name
+			   +postDate		+username
+			   +postTitle		+password
+			   +postID		+email
+						+date (date registered)
+						+permission			
+			
