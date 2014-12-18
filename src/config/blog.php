@@ -8,7 +8,11 @@ function add_post($connection,$title,$content,$category){
     
 }
 
-function edit_post($id,$title,$content,$category){
+function edit_post($connection,$id,$title,$content,$category){
+    $title =mysqli_real_escape_string($connection,$title);
+    $content =mysqli_real_escape_string($connection,$content);
+    $category = (int)$category;
+    mysqli_query($connection,"UPDATE blog_posts SET postTitle = '{$title}',postContent = '{$content}',catID = $category WHERE postID = $id");
 }
 
 function add_category($connection,$name){
@@ -16,10 +20,11 @@ function add_category($connection,$name){
     mysqli_query($connection,"INSERT INTO blog_categories (name) VALUES('$name')");
 }
 
-function deleteStuff($connection,$table,$id){
+function deleteStuff($connection,$table,$field,$id){
     $table = mysqli_real_escape_string($connection,$table);
     $id = (int)$id;
-    mysqli_query($connection,"DELETE FROM $table WHERE id = $id");
+    
+    mysqli_query($connection,"DELETE FROM $table WHERE $field = $id");
     
 }
 

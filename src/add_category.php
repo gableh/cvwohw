@@ -15,6 +15,8 @@ if(isset($_POST['name'])){
     }
     if(!isset($error)){
 	add_category($connection,$name);
+	header("Location: add_post.php");
+	die();
 	
     }
 
