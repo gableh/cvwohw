@@ -106,4 +106,15 @@ function login($connection,$username,$password){
 	die("User doesnt exist!");
     }
 }
+function register_user($connection,$name,$username,$password,$email)
+{
+
+    $name = mysqli_real_escape_string($connection,$name);
+    $username = mysqli_real_escape_string($connection,$username);
+    $password = mysqli_real_escape_string($connection,$password);
+    $email = mysqli_real_escape_string($connection,$email); 
+    $date = date("Y-m-d");
+    mysqli_query($connection,"INSERT INTO blog_members (name,username,password,email,date) VALUES('{$name}','{$username}','{$password}','{$email}',{$date})");
+    
+}
 ?>

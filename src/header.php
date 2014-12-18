@@ -22,7 +22,7 @@
 			<ul class= "nav navbar-nav navbar-right">
 			    <li class><a href="index.php">Home</a></li>
 			    		
-			    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Signup</a></li>
+			    <li><a href="register.php"><span class="glyphicon glyphicon-user"></span> Signup</a></li>
 			    <li><a href="loginform.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 			    <li class = "dropdown">
 				<a href="#" class = "dropdown-toggle" data-toggle = "dropdown">Find Us!<b class ="caret"></b></a>
