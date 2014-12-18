@@ -1,6 +1,6 @@
 
 <?php
-include_once('config/init.php');
+include_once('../config/init.php');
 if(isset($_POST['name']))
 {
     $name = trim($_POST['name']);
@@ -26,7 +26,7 @@ if(isset($_POST['name']))
 
 }
 ?>
-<?php include_once('header.php') ?>
+<?php include_once('common/header.php') ?>
 
 <h1>Add Category</h1>
 <?php
@@ -45,4 +45,4 @@ if(isset($_POST['name']))
     </div>
 </form>
 
-<?php include_once('footer.php') ?>
+<?php include_once('common/footer.php') ?>

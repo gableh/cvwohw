@@ -1,10 +1,10 @@
-<?php include_once('header.php') ?>
-<?php include_once('config/init.php')?>
+<?php include_once('common/header.php') ?>
+<?php include_once('../config/init.php')?>
 <?php
 echo "<h1>Register</h1>";?>
 
 
-<form action='checkregister.php' method='POST'>
+<form action='view/checkregister.php' method='POST'>
     <table>
 	<tr>
 	    <td>
@@ -54,4 +54,4 @@ echo "<h1>Register</h1>";?>
     <input type ='submit' name= 'submit' value='Register'>
     </p>
 </form>
-<?php include_once('footer.php')?>
+<?php include_once('common/footer.php')?>

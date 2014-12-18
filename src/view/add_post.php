@@ -1,6 +1,6 @@
-<?php include_once('header.php')?>
+<?php include_once('common/header.php')?>
 <?php 
-include_once('config/init.php');
+include_once('../config/init.php');
 if(isset($_POST['title'],$_POST['content'],$_POST['category']))
 {
     $errors= array();
@@ -27,7 +27,7 @@ if(isset($_POST['title'],$_POST['content'],$_POST['category']))
     {
 	add_post($connection,$title,$content,$_POST['category']);
 	$postID= mysqli_insert_id($connection);
-	header("Location: index.php?id={$postID}");
+	header("Location: ../index.php?id={$postID}");
 	die();
     }
 }
@@ -69,4 +69,4 @@ if(isset($errors) && !empty($errors))
 </form>
 </div>
 <hr>
-<?php include_once('footer.php')?>
+<?php include_once('common/footer.php')?>

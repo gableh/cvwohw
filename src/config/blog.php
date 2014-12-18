@@ -60,17 +60,6 @@ function get_categories($connection,$id = null){
     return $categories;
 }
 
-function mysqli_result($res,$row=0,$col=0)
-{ 
-    if ($row >= 0 && mysqli_num_rows($res) > $row){ 
-	    mysqli_data_seek($res,$row); 
-	    $resrow = mysqli_fetch_row($res); 
-	    if (isset($resrow[$col])){
-		 return $resrow[$col]; 
-	    }
-    } 
-	    return false; 
-}
 function category_exists($connection,$field,$value){
     $field =mysqli_real_escape_string($connection,$field);
     $value = mysqli_real_escape_string($connection,$value);
@@ -96,7 +85,7 @@ function login($connection,$username,$password){
 	while($row = mysqli_fetch_assoc($query)){
 	    $dbusername =  $row['username'];
 	    $dbpassword = $row['password'];
-	    if($dbusername == $username && $dbpassword == $password){
+	    if($dbusername == $username && $dbpassword == md5($password)){
 		return true;
 	    }
 	}
@@ -116,5 +105,15 @@ function register_user($connection,$name,$username,$password,$email)
     $date = date("Y-m-d");
     mysqli_query($connection,"INSERT INTO blog_members (name,username,password,email,date) VALUES('{$name}','{$username}','{$password}','{$email}',{$date})");
     
+}
+function is_admin($connection,$username)
+{
+    $query = mysqli_query($connection,"SELECT permission FROM blog_members WHERE username = '{$username}'");
+    $row = mysqli_fetch_row($query);
+    if($row[0] !=null)
+    {
+	return true;
+    }
+    return false;
 }
 ?>

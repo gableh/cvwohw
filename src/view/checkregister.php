@@ -1,4 +1,4 @@
-<?php include_once('config/init.php') ?>
+<?php include_once('../config/init.php') ?>
 <?php 
 
 
@@ -24,7 +24,7 @@ if($name && $username && $password && $password2 && $email)
 	}
 	else
 	{
-	    register_user($connection,$name,$username,$email,$password);
+	    register_user($connection,$name,$username,$password,$email);
 	    header("location: loginform.php");
 	}
     }

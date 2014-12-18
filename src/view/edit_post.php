@@ -1,6 +1,6 @@
-<?php include_once('header.php')?>
+<?php include_once('common/header.php')?>
 
-<?php include_once('config/init.php');
+<?php include_once('../config/init.php');
     $post = get_posts($connection,$_GET['id']);
 
 
@@ -24,7 +24,7 @@
 	if(empty($errors)){
 	    $id = $_GET['id'];
 	    edit_post($connection,$_GET['id'],$title,$content,$_POST['category']);
-	    header("Location: index.php?id={$post[0]['postID']}");
+	    header("Location: ../index.php?id={$post[0]['postID']}");
 	    die();
 	}
     }
@@ -66,4 +66,4 @@
 </form>
 </div>
 <hr>
-<?php include_once('footer.php')?>
+<?php include_once('common/footer.php')?>

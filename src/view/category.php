@@ -1,6 +1,6 @@
 <?php
-include_once('header.php');
-include_once('config/init.php');
+include_once('common/header.php');
+include_once('../config/init.php');
 $catID = isset($_GET['id']) ? $_GET['id']:null;
 $posts = get_posts($connection,null,$catID);
 ?>
@@ -9,7 +9,7 @@ $posts = get_posts($connection,null,$catID);
 foreach($posts as $post)
 {
 ?>
-    <h2><a href="index.php?id=<?php echo $post['postID'];?>"><?php echo $post['postTitle'];?></a></h2>
+    <h2><a href="../index.php?id=<?php echo $post['postID'];?>"><?php echo $post['postTitle'];?></a></h2>
     <p>Posted on <?php echo date("d-m-Y h:i:s",strtotime($post["postDate"]));?> in <a href="category.php?id=<?php echo $post['id'] ?>"><?php echo $post['name']; ?></a></p>
     <div><?php echo nl2br($post['postContent'])?></div>
     <div id="menuops"> 
@@ -23,4 +23,4 @@ foreach($posts as $post)
 <?php
 }
 ?> 
-<?php include('footer.php') ?>
+<?php include('common/footer.php') ?>

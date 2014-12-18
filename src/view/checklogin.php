@@ -1,4 +1,4 @@
-<?php include_once('config/init.php') ?>
+<?php include_once('../config/init.php') ?>
 <?php 
 session_start();
 $username = mysqli_real_escape_string($connection,$_POST['username']);
@@ -8,7 +8,11 @@ $password = trim($password);
 if(login($connection,$username,$password))
 {
     $_SESSION['username'] =$username;
-    header("location: index.php");
+    header("location: ../index.php");
+}
+else
+{
+	die("Wrong password");
 }
 
 ?>
