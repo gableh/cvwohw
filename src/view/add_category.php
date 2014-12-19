@@ -30,6 +30,17 @@ if(isset($_POST['name']))
 
 <h1>Add Category</h1>
 <?php
+     if(isset($_SESSION['username']))
+    {
+	if(!is_admin($connection,$_SESSION['username']))
+	{
+	      die("Please log in as admin to continue!");
+	}
+    }
+    else
+    {
+	die("You must be logged in to continue!");
+    }
     if(isset($error))
     {
 	echo "<p>{$error}</p>\n";
