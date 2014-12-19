@@ -1,6 +1,8 @@
 <?php include_once('../config/init.php') ?>
 <?php 
 
+$date = date("Y-m-d");
+echo $date;
 $name = strip_tags($_POST['name']);
 $username = strip_tags($_POST['username']);
 $password = strip_tags($_POST['password']);

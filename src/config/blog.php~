@@ -103,7 +103,7 @@ function register_user($connection,$name,$username,$password,$email,$date)
     $password = mysqli_real_escape_string($connection,$password);
     $email = mysqli_real_escape_string($connection,$email); 
     
-    mysqli_query($connection,"INSERT INTO blog_members (name,username,password,email,date) VALUES('{$name}','{$username}','{$password}','{$email}','{$date}')");
+    mysqli_query($connection,"INSERT INTO blog_members (name,username,password,email,date) VALUES('{$name}','{$username}','{$password}','{$email}',{$date})");
     
 }
 function is_admin($connection,$username)
