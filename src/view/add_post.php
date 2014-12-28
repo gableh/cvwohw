@@ -36,11 +36,22 @@ if(isset($_POST['title'],$_POST['content'],$_POST['category']))
     }
     if(empty($errors))
     {
-	add_post($connection,$title,$content,$_POST['category']);
-	$postID= mysqli_insert_id($connection);
-	header("Location: ../index.php?id={$postID}");
-	die();
+    if(isset($_POST['img']))
+    {
+        add_post($connection,$title,$content,$_POST['category'],$_POST['img']);
+        $postID= mysqli_insert_id($connection);
+        header("Location: ../index.php?id={$postID}");
+        die();
     }
+
+    else{
+	   add_post($connection,$title,$content,$_POST['category']);
+	   $postID= mysqli_insert_id($connection);
+	   header("Location: ../index.php?id={$postID}");
+	   die();
+        }
+    }
+    
 }
 ?>
 <div class ="container">
@@ -57,6 +68,10 @@ if(isset($errors) && !empty($errors))
 	<input type="text" name= "title" value= "<?php if(isset($_POST['title']))echo $_POST['title']; ?>">
     </div>
     <br>
+    <div>
+    <label for = "img">Add an image</label>
+    <input type="text" name= "img" value= "<?php if(isset($_POST['img']))echo $_POST['img']; ?>">
+    </div>
     <div>
 	<label for ="content">Content</label><br>
 	<textarea name = "content" rows="15" cols="50"><?php if(isset($_POST['content']))echo $_POST['content'];?></textarea>

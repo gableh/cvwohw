@@ -1,3 +1,46 @@
 #menuops ul li {
 margin :10px;
 display:inline;}
+.sidebar-clear{
+	
+	position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  
+
+}
+body {
+  padding-top:70px;
+}
+
+#wrap
+{
+min-height: 79%;
+}
+
+.push
+{
+	padding-bottom:15px;
+ /* this needs to be bigger than footer height*/
+}
+
+.footer
+{
+position: relative;
+
+ /* negative value of footer height */
+
+clear:both;
+
+color:#fff;
+}
+.row{
+	margin-right: 0px;
+	margin-left: 0px;
+}
+#main{
+	padding-top:40px;
+}

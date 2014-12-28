@@ -1,10 +1,10 @@
 <?php
 ini_set('display_errors',1);
-function add_post($connection,$title,$content,$category){
+function add_post($connection,$title,$content,$category,$img=null){
     $title =mysqli_real_escape_string($connection,$title);
     $content =mysqli_real_escape_string($connection,$content);
     $category = (int)$category;
-    mysqli_query($connection,"INSERT INTO blog_posts (catID,postContent,postDate,postTitle) VALUES($category,'{$content}',now(),'{$title}')");
+    mysqli_query($connection,"INSERT INTO blog_posts (catID,postContent,postDate,postTitle,postIMG) VALUES($category,'{$content}',now(),'{$title}','{$img}')");
     
 }
 
@@ -30,7 +30,7 @@ function deleteStuff($connection,$table,$field,$id){
 
 function get_posts($connection,$id = null,$catID =null){
     $posts = array();
-    $query ="SELECT blog_posts.postID,blog_posts.postTitle,blog_posts.postDate,blog_posts.postContent,blog_categories.id,blog_categories.name
+    $query ="SELECT blog_posts.postID,blog_posts.postTitle,blog_posts.postDate,blog_posts.postContent,blog_posts.postIMG,blog_categories.id,blog_categories.name
 FROM blog_posts
 INNER JOIN blog_categories 
 ON blog_categories.id =blog_posts.catID";
