@@ -9,6 +9,10 @@ $email = strip_tags($_POST['email']);
 
 if($name && $username && $password && $password2 && $email)
 {
+
+	if(user_exists($connection,$username)){
+		die("User already exists!");
+	}
     if(strlen($password)<6)
     {
 	die("password must be at least 6 chars long");

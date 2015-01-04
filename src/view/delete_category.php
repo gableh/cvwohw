@@ -13,11 +13,12 @@ include_once('../config/init.php');
     {
 	die("You must be logged in to continue!");
     }
-    if(!(isset($_GET['id'])))
+    if(!(isset($_GET['id'])) || $_GET["id"]==24)
     {
 	header("Location: ../index.php");
 	die();
     }
+    
     $id=$_GET["id"];
     mysqli_query($connection,"UPDATE blog_posts SET catID = 24 WHERE catID = {$id}");
     deleteStuff($connection,"blog_categories","id",$_GET["id"]);
