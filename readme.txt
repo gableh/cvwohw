@@ -17,9 +17,7 @@ Basic use cases (functions mostly found in config/blog.php):
 	Admin check - checks if logged in user is an admin,does this by checking the permission the username has in blog_members.Admins have a permission of 1,non admins have their permission set to null.
 	
 To do list:
-    add registration check,if username or email already exists in blog_members then will fail.
-    add a regular members sidebar/control panel
-    prevent the 'Uncategorized' entry in blog_categories from being deleted.
+    
     make the web page look pretty.
 
 Problems being faced:
