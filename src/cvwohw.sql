@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.5.40, for debian-linux-gnu (x86_64)
+-- MySQL dump 10.13  Distrib 5.6.19, for debian-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: cvwohw
 -- ------------------------------------------------------
--- Server version	5.5.40-0ubuntu0.14.04.1
+-- Server version	5.6.19-0ubuntu0.14.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -56,7 +56,7 @@ CREATE TABLE `blog_members` (
   `name` varchar(255) NOT NULL,
   `date` date NOT NULL,
   PRIMARY KEY (`memberID`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -65,7 +65,7 @@ CREATE TABLE `blog_members` (
 
 LOCK TABLES `blog_members` WRITE;
 /*!40000 ALTER TABLE `blog_members` DISABLE KEYS */;
-INSERT INTO `blog_members` VALUES (7,'admin','e10adc3949ba59abbe56e057f20f883e','admin',1,'admin','0000-00-00'),(8,'gable','e10adc3949ba59abbe56e057f20f883e','gable',NULL,'gable','0000-00-00'),(9,'123456','e10adc3949ba59abbe56e057f20f883e','123456',NULL,'123456','0000-00-00');
+INSERT INTO `blog_members` VALUES (7,'admin','e10adc3949ba59abbe56e057f20f883e','admin',1,'admin','0000-00-00'),(8,'gable','e10adc3949ba59abbe56e057f20f883e','gable',NULL,'gable','0000-00-00'),(9,'123456','e10adc3949ba59abbe56e057f20f883e','123456',NULL,'123456','0000-00-00'),(10,'test','e10adc3949ba59abbe56e057f20f883e','test',NULL,'test','0000-00-00'),(11,'123456','e10adc3949ba59abbe56e057f20f883e','123456',NULL,'fsdfds','0000-00-00'),(12,'blah','e10adc3949ba59abbe56e057f20f883e','123456',NULL,'blah','2014-12-19'),(13,'gable5','e807f1fcf82d132f9bb018ca6738a19f','gable@gable.gable',NULL,'gable','2014-12-27');
 /*!40000 ALTER TABLE `blog_members` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -82,8 +82,9 @@ CREATE TABLE `blog_posts` (
   `postTitle` varchar(255) NOT NULL,
   `postContent` text NOT NULL,
   `postDate` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `postIMG` varchar(255) NOT NULL,
   PRIMARY KEY (`postID`)
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -92,7 +93,7 @@ CREATE TABLE `blog_posts` (
 
 LOCK TABLES `blog_posts` WRITE;
 /*!40000 ALTER TABLE `blog_posts` DISABLE KEYS */;
-INSERT INTO `blog_posts` VALUES (37,15,'23423','423423','2014-12-17 17:24:08'),(38,15,'testing testing','hihi','2014-12-17 17:24:54'),(39,24,'testing testing 123','hihi','2014-12-17 17:31:17'),(44,24,'testing testing 123 123','23131','2014-12-19 05:06:58');
+INSERT INTO `blog_posts` VALUES (37,15,'23423','423423','2014-12-17 17:24:08',''),(38,15,'testing testing','hihi','2014-12-17 17:24:54',''),(39,24,'testing testing 123','hihi','2014-12-17 17:31:17',''),(44,24,'testing testing 123 123','23131','2014-12-19 05:06:58',''),(45,18,'hello everyone','hihi','2014-12-29 02:20:27',''),(46,18,'hello everyone','hihihi','2014-12-29 02:21:39',''),(47,18,'hello everyone','hihihi','2014-12-29 02:24:48','http://placehold.it/350x150'),(48,15,'dasdas','hihihi','2014-12-29 02:29:32','http://placehold.it/350x150');
 /*!40000 ALTER TABLE `blog_posts` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -105,4 +106,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-12-19  9:53:05
+-- Dump completed on 2015-01-04 22:34:30

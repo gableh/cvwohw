@@ -116,4 +116,16 @@ function is_admin($connection,$username)
     }
     return false;
 }
+function user_exists($connection,$username2)
+{
+    $query = mysqli_query($connection,"SELECT COUNT(username) FROM blog_members WHERE username = '{$username2}'");
+
+    $row = $query->fetch_row();
+    if($row[0] == 0){
+    return false;
+    }
+    else{
+    return true;
+    }
+}
 ?>
