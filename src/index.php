@@ -94,10 +94,24 @@ $posts = (isset($_GET['id'])?get_posts($connection,$_GET['id']):get_posts($conne
                 </div>
 
                 <!-- Side Widget Well -->
-                <div class="well">
-                    <h4>Side Widget Well</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
-                </div>
+                
+                    <?php if(isset($_SESSION['username']))
+                            {
+                                if(is_admin($connection,$_SESSION['username']))
+                                {
+                                    echo '<div class="well">
+                                    <div id="admin-sidebar"><ul>
+                                    <li><a href="view/add_post.php">Add Post</a></li>
+                                    <li><a href="view/add_category.php">Add Category</a></li>
+                                    <li><a href="view/category_list.php">Delete Category</a></li>
+                                    
+                                    </ul>
+                                    </div>
+                                    </div>';
+                                }
+                            } 
+                    ?>
+                
 
             </div>
 
