@@ -17,7 +17,8 @@ Basic use cases (functions mostly found in config/blog.php):
 	Admin check - checks if logged in user is an admin,does this by checking the permission the username has in blog_members.Admins have a permission of 1,non admins have their permission set to null.
 	
 To do list:
-    
+    add pagination
+    remove the login page and either put the loginbox in the side bar or use a js prompt.
     make the web page look pretty.
 
 Problems being faced:
